@@ -80,8 +80,6 @@
                         <input type="button" class="btn btn-warning" id="btn1"
                                value="新增商品">
                     </a>
-                    <input type="button" class="btn btn-warning" id="btn1"
-                           value="批量删除" onclick="deleteBatch(${pb.pageNum})">
                 </div>
                 <!--显示分页后的商品-->
                 <div id="middle">

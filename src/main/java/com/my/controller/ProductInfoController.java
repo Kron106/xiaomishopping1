@@ -29,47 +29,7 @@ public class ProductInfoController
     @Autowired
     private ProductInfoService productInfoService;
 
-    // 显示全部信息（不分页）
-    @RequestMapping(value = "/getAll.do")
-    public String getAll(HttpServletRequest request)
-    {
-        List<ProductInfo> list = productInfoService.getAll();
-        request.setAttribute("list", list);
-        return "product";
-    }
 
-    // 显示第一页的5条记录（分页）
-    @RequestMapping(value = "/split.do")
-    public String split(HttpServletRequest request)
-    {
-        PageInfo info = null;
-        Object vo = request.getSession().getAttribute("productVo");
-        if(vo != null)
-        {
-            info = productInfoService.splitPageVo((ProductVo) vo, PAGE_SIZE);
-            request.getSession().setAttribute("vo", vo);
-            /*request.getSession().removeAttribute("productVo");*/
-        }
-        else
-        {
-            info = productInfoService.splitPage(1, PAGE_SIZE);
-        }
-
-        request.setAttribute("pb", info);
-        return "product";
-    }
-
-    // ajax分页反页处理
-    @ResponseBody
-    @RequestMapping(value = "/ajaxSplit.do")
-    public void ajaxSplit(HttpSession session, int page, ProductVo vo)
-    {
-        // 如果为第0页，当成第一页来处理
-        page = (page==0) ? 1 : page;
-        // 取得当前page参数页面的数据
-        PageInfo info = productInfoService.splitPageVo(vo, PAGE_SIZE);
-        session.setAttribute("pb", info);
-    }
 
     // 异步ajax文件上传处理
     @ResponseBody
@@ -231,6 +191,47 @@ public class ProductInfoController
             request.setAttribute("msg", "商品不可删除");
         }
         return "forward:/product/deleteAjaxSplit.do";
+    }
+    // 显示全部信息（不分页）
+    @RequestMapping(value = "/getAll.do")
+    public String getAll(HttpServletRequest request)
+    {
+        List<ProductInfo> list = productInfoService.getAll();
+        request.setAttribute("list", list);
+        return "product";
+    }
+
+    // 显示第一页的5条记录（分页）
+    @RequestMapping(value = "/split.do")
+    public String split(HttpServletRequest request)
+    {
+        PageInfo info = null;
+        Object vo = request.getSession().getAttribute("productVo");
+        if(vo != null)
+        {
+            info = productInfoService.splitPageVo((ProductVo) vo, PAGE_SIZE);
+            request.getSession().setAttribute("vo", vo);
+            /*request.getSession().removeAttribute("productVo");*/
+        }
+        else
+        {
+            info = productInfoService.splitPage(1, PAGE_SIZE);
+        }
+
+        request.setAttribute("pb", info);
+        return "product";
+    }
+
+    // ajax分页反页处理
+    @ResponseBody
+    @RequestMapping(value = "/ajaxSplit.do")
+    public void ajaxSplit(HttpSession session, int page, ProductVo vo)
+    {
+        // 如果为第0页，当成第一页来处理
+        page = (page==0) ? 1 : page;
+        // 取得当前page参数页面的数据
+        PageInfo info = productInfoService.splitPageVo(vo, PAGE_SIZE);
+        session.setAttribute("pb", info);
     }
 
 }

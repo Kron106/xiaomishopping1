@@ -40,23 +40,17 @@
 				<div id="bleft">
 					<div id="ltop">
 						<div id="lts">
-							<img src="${pageContext.request.contextPath}/images/logo.jpg" /><br />
+							<img src="${pageContext.request.contextPath}/images/naonao.jpg" /><br />
 							<p style="text-align: center;">${requestScope.admin.aName}</p>
 						</div>
 					</div>
 					<div id="lbottom">
 						<ul>
+							<a href="${pageContext.request.contextPath}/producttype/getAll.do" target="myright" >
+								<li class="two"><span class="glyphicon glyphicon-book" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;商品类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play" style="color: white;"></span> </li>
+							</a>
 							<a href="${pageContext.request.contextPath}/product/split.do" target="myright" >
 								<li class="two"><span class="glyphicon glyphicon-book" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;商品管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play" style="color: white;"></span> </li>
-							</a>
-							<a href="${pageContext.request.contextPath}/admin/err.jsp" target="myright">
-								<li class="one"><span class="glyphicon glyphicon-sort" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;订单管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play" style="color: white;"></span> </li>
-							</a>
-							<a href="${pageContext.request.contextPath}/admin/err.jsp" target="myright">
-								<li class="one"><span class="glyphicon glyphicon-user" style="color: white;"></span>&nbsp;&nbsp;&nbsp;&nbsp;用户管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play" style="color: white;"></span> </li>
-							</a>
-							<a href="${pageContext.request.contextPath}/admin/err.jsp" target="myright">
-								<li class="one"><span class="glyphicon glyphicon-bullhorn" style="color: white"></span>&nbsp;&nbsp;&nbsp;&nbsp;通知公告&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-play" style="color: white;"></span> </li>
 							</a>
 						</ul>
 					</div>
